@@ -1,0 +1,36 @@
+<div class="container">
+
+    <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+        <label>Nom Chanson en tapant</label>
+        <input #nom [(ngModel)]="searchTerm" name="searchTerm" class="form-control" >
+        </div>
+    </form>
+        
+
+
+   
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr> <th>Id</th><th>Nom</th>  <th>Date Création</th><th>Durée</th><th>Album</th> </tr>
+                </thead>
+                <tbody *ngFor="let produit of chansons | filter:searchTerm  ">
+                    <tr>
+                        <td>{{produit.idChanson}}</td>
+                        <td>{{produit.nom}}</td>
+                        <td>{{produit.dateCreation | date:'dd/MM/yyyy'}}</td>
+                        
+                        <td>{{produit.duree}}</td>
+                       
+                        <td>{{produit.album.nom}}</td> 
+                        
+                     
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
